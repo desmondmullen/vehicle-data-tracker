@@ -208,6 +208,8 @@ $(document).ready(function () {
             email: userEmail,
             signedIn: false
         });
+        $("#vehicle-name").val("");
+        $("#vehicle-data").val("");
     };
 
     //Handles the sign up button press.
