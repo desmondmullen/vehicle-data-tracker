@@ -200,7 +200,8 @@ hr {
         width: 100%;
     }
     #bottom-bar {
-        height: 3.5ch;
+        height: 4ch;
+        font-size: small;
         text-align: center;
         padding-left: 0px;
     }
