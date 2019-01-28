@@ -208,6 +208,9 @@ $(document).ready(function () {
             email: userEmail,
             signedIn: false
         });
+        database.ref(userStatisticsPath).set({//this would not otherwise get written if no entries were added or edited
+            vehicleName: $("#vehicle-name").val(),
+        });
         $("#vehicle-name").val("");
         $("#vehicle-data").text("");
         thePreviousGasFillupOdometer = 0;
@@ -370,5 +373,5 @@ $(document).ready(function () {
         });
     }
     initializeDatabaseReferences();
-    console.log("v2.527");
+    console.log("v2.5275");
 });
