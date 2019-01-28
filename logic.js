@@ -210,6 +210,15 @@ $(document).ready(function () {
         });
         $("#vehicle-name").val("");
         $("#vehicle-data").val("");
+        thePreviousGasFillupOdometer = 0;
+        theLastGasFillupOdometer = 0;
+        theLastGasFillupGallons = 0;
+        thePreviousOilFillupOdometer = 0;
+        theLastOilFillupOdometer = 0;
+        theLastOilFillupQuarts = 0;
+        theMPG = 0;
+        theMPQ = 0;
+
     };
 
     //Handles the sign up button press.
