@@ -39,17 +39,17 @@ $(document).ready(function () {
     displayApplicationOrAuthentication()
 
     //----------------------
-    var connectionsRef = database.ref("/connections");
-    var connectedRef = database.ref(".info/connected");
-    connectedRef.on("value", function (connectedSnapshot) {
-        if (connectedSnapshot.val()) {
-            var theConnection = connectionsRef.push(true);
-            theConnection.onDisconnect().remove();
-        };
-    });
-    connectionsRef.on("value", function (connectionsSnapshot) {
-        // $("#connected-viewers").text(connectionsSnapshot.numChildren());
-    });
+    // var connectionsRef = database.ref("/connections");
+    // var connectedRef = database.ref(".info/connected");
+    // connectedRef.on("value", function (connectedSnapshot) {
+    //     if (connectedSnapshot.val()) {
+    //         var theConnection = connectionsRef.push(true);
+    //         theConnection.onDisconnect().remove();
+    //     };
+    // });
+    // connectionsRef.on("value", function (connectionsSnapshot) {
+    //     // $("#connected-viewers").text(connectionsSnapshot.numChildren());
+    // });
     // Number of online users is the number of objects in the presence list.
     //----------------------
     var todaysDate = new Date().toLocaleDateString("en-US");
