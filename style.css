@@ -176,6 +176,7 @@ hr {
 @media only screen and (max-width: 900px) {
     h3 {
         font-size: x-large;
+        margin: 5px 0 0 0;
     }
     p {
         width: 100%;
@@ -194,6 +195,9 @@ hr {
     }
     label {
         margin: 5px 0px 0px 0px;
+    }
+    #vehicle-name {
+        margin: 10px 0 0 0;
     }
     #vehicle-data {
         display: inline-block;
