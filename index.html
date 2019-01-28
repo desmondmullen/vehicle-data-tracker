@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=yes'>
+    <meta charset="UTF-8">
+    <title>Vehicle Data Tracker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <script src="logic.js"></script>
+</head>
+
+<body>
+    <header>
+        <h3>Vehicle Data Tracker</h3>
+        <button id="sign-out">Sign Out</button>
+    </header>
+    <div id="authentication">
+        <h3>Login</h3>
+        <p>Enter an email address and password below then click a button to either <strong>sign in</strong> to an
+            existing
+            account or
+            <strong>create a new account</strong>.<br>Enter your email address and leave password blank if you want to
+            <strong>reset
+                your password</strong>.</p>
+        <input type="text" id="email" name="email" placeholder="Email" /><input type="password" id="password" name="password"
+            placeholder="Password" /><br><button disabled id="sign-in" class="sign-in" name="signin">Sign
+            In</button><button id="create-account" name="createaccount">Create Account</button><button id="password-reset"
+            name="passwordreset">Reset Password</button>
+    </div>
+
+    <div id="application">
+        <form>
+            <label for="input-date">Date:</label> <input id="input-date" type="text" name="input-date" size=10><br>
+            <label for="input-odometer">Odometer:</label> <input id="input-odometer" type="text" name="input-odometer"
+                size=10><br>
+            <label for="input-gallons">Gallons of Gas:</label> <input id="input-gallons" type="text" name="input-gallons"
+                size=10><br>
+            <label for="input-quarts">Quarts of Oil:</label> <input id="input-quarts" type="text" name="input-quarts"
+                size=10><br>
+            <label for="input-notes" class="label-notes">Notes:</label> <textarea id="input-notes" name="input-notes"
+                rows=4></textarea><br>
+            <div id="add-entry-display"><button id="add-entry" class="add-entry">Add Entry</button></div>
+        </form>
+        <div id="editing-display">Editing Entry ID: <div id="editing-id"></div><br>
+            <button id="update-entry" class="add-entry">Update
+                Entry</button> <button id="delete-entry">Delete
+                Entry</button> <button id="cancel-update">Cancel
+                Update</button>
+        </div>
+        <div id="vehicle-data-wrapper">
+            <input id="vehicle-name" size=18 placeholder="Enter vehicle nickname..."></input>
+            <div id="vehicle-data"></div>
+        </div>
+        <div id="display-entries"></div>
+        <div id="bottom-bar">
+            Vehicle: <input id="btn-one" type="radio" class="which-vehicle-radio-button" name="which-vehicle" value="one"
+                checked>One<input id="btn-two" type="radio" class="which-vehicle-radio-button" name="which-vehicle"
+                value="two">Two<input id="btn-three" type="radio" class="which-vehicle-radio-button" name="which-vehicle"
+                value="three">Three<input id="btn-four" type="radio" class="which-vehicle-radio-button" name="which-vehicle"
+                value="four">Four<input id="btn-five" type="radio" class="which-vehicle-radio-button" name="which-vehicle"
+                value="five">Five
+            <section id='copyright'>&copy; 2018 Desmond Mullen <a href='https://desmondmullen.com' target='_blank'
+                    class='copyright-link'>desmondmullen.com</a></section>
+        </div>
+    </div>
+</body>
+
+</html>
