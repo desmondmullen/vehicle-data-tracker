@@ -6,12 +6,12 @@
 
 $(document).ready(function () {
     var config = {
-        apiKey: "AIzaSyDKQWsJyXa1feKOaTucpMssvIbYQvqdj8s",
-        authDomain: "vintage-car-data.firebaseapp.com",
-        databaseURL: "https://vintage-car-data.firebaseio.com",
-        projectId: "vintage-car-data",
-        storageBucket: "vintage-car-data.appspot.com",
-        messagingSenderId: "875988524272"
+        apiKey: "AIzaSyDMeRaMbSsXtljkmrDtCgS7M4Gc6s8kpd4",
+        authDomain: "vehicle-data-tracker.firebaseapp.com",
+        databaseURL: "https://vehicle-data-tracker.firebaseio.com",
+        projectId: "vehicle-data-tracker",
+        storageBucket: "vehicle-data-tracker.appspot.com",
+        messagingSenderId: "1039700451229"
     };
     firebase.initializeApp(config);
     var database = firebase.database();
