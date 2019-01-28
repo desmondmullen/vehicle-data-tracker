@@ -181,12 +181,31 @@ hr {
         width: 100%;
         margin-left: 0;
     }
+    #sign-out {
+        float: none;
+        margin: 0;
+    }
     #copyright {
+        right: 0;
+        padding: 0;
+        left: 50%;
+        margin-left: -50%;
         font-size: x-small;
-        padding: 5px;
     }
     label {
         margin: 5px 0px 0px 0px;
+    }
+    #vehicle-data {
+        display: inline-block;
+        width: 100%;
+    }
+    #bottom-bar {
+        height: 3.5ch;
+        text-align: center;
+        padding-left: 0px;
+    }
+    .which-vehicle-radio-button {
+        margin: 5px 5px 0 5px;
     }
 }
 
