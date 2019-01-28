@@ -370,5 +370,5 @@ $(document).ready(function () {
         });
     }
     initializeDatabaseReferences();
-    console.log("v2.517");
+    console.log("v2.525");
 });
