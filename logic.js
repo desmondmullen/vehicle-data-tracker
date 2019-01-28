@@ -379,7 +379,7 @@ $(document).ready(function () {
         });
     }
     initializeDatabaseReferences();
-    console.log("v2.5");
+    console.log("v2.51");
 
     //-----------------------------------
     function setInitialData() {
