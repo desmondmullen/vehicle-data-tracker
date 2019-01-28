@@ -285,10 +285,10 @@ $(document).ready(function () {
                 userSignedIn = true;
                 userEntriesPath = "users/" + userID + "/" + userWhichVehicle + "/entries";
                 userStatisticsPath = "users/" + userID + "/" + userWhichVehicle + "/statistics";
-                userUsersPath = "users/" + userID;
+                userUsersPath = "users/" + userID + "/info";
                 displayApplicationOrAuthentication();
                 document.getElementById("sign-in").textContent = "Sign out";
-                firebase.database().ref("users/" + userID + "/userID").set({
+                firebase.database().ref(userUsersPath).set({
                     email: userEmail,
                     signedIn: true
                 });
@@ -379,7 +379,7 @@ $(document).ready(function () {
         });
     }
     initializeDatabaseReferences();
-    console.log("v2.51");
+    console.log("v2.517");
 
     //-----------------------------------
     function setInitialData() {
