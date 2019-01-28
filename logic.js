@@ -209,7 +209,7 @@ $(document).ready(function () {
             signedIn: false
         });
         $("#vehicle-name").val("");
-        $("#vehicle-data").val("");
+        $("#vehicle-data").text("");
         thePreviousGasFillupOdometer = 0;
         theLastGasFillupOdometer = 0;
         theLastGasFillupGallons = 0;
@@ -370,5 +370,5 @@ $(document).ready(function () {
         });
     }
     initializeDatabaseReferences();
-    console.log("v2.525");
+    console.log("v2.527");
 });
