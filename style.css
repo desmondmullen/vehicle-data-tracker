@@ -211,6 +211,10 @@ hr {
     text-align: center;
 }
 
+.td-text {
+    width: 10ch;
+}
+
 .td-number input {
     margin-right: 0;
     width: 8ch;
@@ -276,7 +280,7 @@ hr {
 }
 
 @media screen and (max-width: 767px) {
-    .interval-table {
+    /* .interval-table {
         width: auto !important;
     }
     .interval-table col {
@@ -286,7 +290,7 @@ hr {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         margin: auto 0px;
-    }
+    } */
 }
 
 @media only screen and (max-width: 600px) {
