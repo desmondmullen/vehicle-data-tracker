@@ -304,6 +304,12 @@ hr {
         left: 0;
         margin-left: 0;
     }
+    table {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
     #vehicle-settings-name {
         font-size: large;
         margin-bottom: 5px;
