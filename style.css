@@ -54,8 +54,8 @@ p {
 #table-wrapper {
     position: relative;
     max-width: 30ch;
-    /* left: 50%; */
-    /* margin-left: -12.5%; */
+    left: 50%;
+    margin-left: -12.5%;
 }
 
 #table-update-buttons {
@@ -167,6 +167,7 @@ input {
     width: 15ch;
     text-align: center;
     font-size: x-large;
+    margin-top: 10px;
     margin-bottom: 10px;
     font-weight: bold;
 }
@@ -295,6 +296,14 @@ hr {
         display: inline-block;
         width: 100%;
         font-size: small;
+    }
+    #table-wrapper {
+        left: 0;
+        margin-left: 0;
+    }
+    #vehicle-settings-name {
+        font-size: large;
+        margin-bottom: 5px;
     }
     #bottom-bar {
         height: 4.5ch;
