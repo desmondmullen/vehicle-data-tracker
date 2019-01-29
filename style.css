@@ -27,6 +27,10 @@ p {
     background-color: palevioletred;
 }
 
+.login-input {
+    text-align: left;
+}
+
 #application {
     display: none;
 }
@@ -196,7 +200,7 @@ hr {
     margin: 10px 5px 10px 20px;
 }
 
-.interval-table {
+/* .interval-table {
     margin: 0px auto;
 }
 
@@ -232,6 +236,7 @@ hr {
 .interval-table .interval-table-td {
     vertical-align: top;
 }
+ */
 
 @-ms-viewport {
     width: device-width;

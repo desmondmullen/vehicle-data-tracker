@@ -26,8 +26,9 @@
             <strong>create a new account</strong>.<br>Enter your email address and leave password blank if you want to
             <strong>reset
                 your password</strong>.</p>
-        <form><input type="email" id="email" name="email" placeholder="Email" /><input type="password" id="password"
-                name="password" placeholder="Password" /><br><button disabled id="sign-in" class="sign-in" name="signin">Sign
+        <form><input type="email" id="email" class="login-input" name="email" placeholder="Email" /><input type="password"
+                id="password" class="login-input" name="password" placeholder="Password" /><br><button disabled id="sign-in"
+                class="sign-in" name="signin">Sign
                 In</button><button id="create-account" name="createaccount">Create Account</button><button id="password-reset"
                 name="passwordreset">Reset Password</button></form>
     </div>
@@ -73,7 +74,49 @@
             <input id="vehicle-settings-name" placeholder="Vehicle nickname..."></input>
             <div id="vehicle-settings-data"></div>
         </div>
-        <div class="interval-table-wrap">
+        <table class="table table-sm table-responsive-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Interval Name</th>
+                    <th scope="col">Last Done</th>
+                    <th scope="col">Next One</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td><input id="interval-1-name" type="text" size=16 placeholder="Ex: oil change..."></td>
+                    <td><input id="interval-1-last-done" type="number" placeholder="125000"></td>
+                    <td><input id="interval-1-interval" type="number" placeholder="3000"></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td><input id="interval-2-name" type="text" size=16></td>
+                    <td><input id="interval-2-last-done" type="number"></td>
+                    <td><input id="interval-2-interval" type="number"></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td><input id="interval-3-name" type="text" size=16></td>
+                    <td><input id="interval-3-last-done" type="number"></td>
+                    <td><input id="interval-3-interval" type="number"></td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td><input id="interval-4-name" type="text" size=16></td>
+                    <td><input id="interval-4-last-done" type="number"></td>
+                    <td><input id="interval-4-interval" type="number"></td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td><input id="interval-5-name" type="text" size=16></td>
+                    <td><input id="interval-5-last-done" type="number"></td>
+                    <td><input id="interval-5-interval" type="number"></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <div class="interval-table-wrap">
             <table class="interval-table">
                 <tr>
                     <th class="interval-table-td">Interval Name</th>
@@ -106,7 +149,7 @@
                     <td class="interval-table-td td-number"><input id="interval-5-interval" type="number"></td>
                 </tr>
             </table>
-        </div>
+        </div> -->
         <div id="table-update-buttons"><button id="update-table">Update
                 Entry</button> <button id="cancel-table-update">Cancel
                 Update</button></div>
