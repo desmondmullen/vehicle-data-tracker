@@ -1,7 +1,6 @@
 //TODO: if there are gallons or quarts, there must be an odometer reading
 //TODO: format cards
 //TODO: reject bad data from user
-//TODO: add tracking for oil changes and major service
 
 $(document).ready(function () {
     var config = {
@@ -22,6 +21,7 @@ $(document).ready(function () {
     var userIntervalsPath;
     var userUsersPath;
     var userWhichVehicle;
+    var theLastOdometerEntry;
 
     function displayApplicationOrAuthentication() {
         if (userSignedIn === true) {
@@ -130,18 +130,18 @@ $(document).ready(function () {
             intervalOneName: $("#interval-1-name").val(),
             intervalOneLastDone: $("#interval-1-last-done").val(),
             intervalOneInterval: $("#interval-1-interval").val(),
-            intervaltwoName: $("#interval-2-name").val(),
-            intervaltwoLastDone: $("#interval-2-last-done").val(),
-            intervaltwoInterval: $("#interval-2-interval").val(),
-            intervalthreeName: $("#interval-3-name").val(),
-            intervalthreeLastDone: $("#interval-3-last-done").val(),
-            intervalthreeInterval: $("#interval-3-interval").val(),
-            intervalfourName: $("#interval-4-name").val(),
-            intervalfourLastDone: $("#interval-4-last-done").val(),
-            intervalfourInterval: $("#interval-4-interval").val(),
-            intervalfiveName: $("#interval-5-name").val(),
-            intervalfiveLastDone: $("#interval-5-last-done").val(),
-            intervalfiveInterval: $("#interval-5-interval").val(),
+            intervalTwoName: $("#interval-2-name").val(),
+            intervalTwoLastDone: $("#interval-2-last-done").val(),
+            intervalTwoInterval: $("#interval-2-interval").val(),
+            intervalThreeName: $("#interval-3-name").val(),
+            intervalThreeLastDone: $("#interval-3-last-done").val(),
+            intervalThreeInterval: $("#interval-3-interval").val(),
+            intervalFourName: $("#interval-4-name").val(),
+            intervalFourLastDone: $("#interval-4-last-done").val(),
+            intervalFourInterval: $("#interval-4-interval").val(),
+            intervalFiveName: $("#interval-5-name").val(),
+            intervalFiveLastDone: $("#interval-5-last-done").val(),
+            intervalFiveInterval: $("#interval-5-interval").val(),
         });
     };
 
@@ -376,6 +376,7 @@ $(document).ready(function () {
                         theValue.entryMPG = theMPG;
                         theValue.entryMPQ = theMPQ;
                         tempArrayOfObjects.push(theValue);
+                        theLastOdometerEntry = child.val().entryOdometer; //the last child processed gives us the last odometer entry
                     });
                     writeStatistics();
                     theEntries = tempArrayOfObjects.reverse();
@@ -389,7 +390,7 @@ $(document).ready(function () {
                         let theNotes = child.entryNotes || "&nbsp;";
                         let theMPG = child.entryMPG || "no mpg data yet";
                         let theMPQ = child.entryMPQ || "no mpq data yet";
-                        theString = theString + "<div data-id='" + theKey + "' class='line-item'><span id='date" + theKey + "' class='date'>" + theDate + "</span><span id='btn-edit' data-id='" + theKey + "'>Edit</span><div id='odometer" + theKey + "'>" + theOdometer + "</div><div id='gallons" + theKey + "'>" + theGallons + "</div><div id='quarts" + theKey + "'>" + theQuarts + "</div><div id='notes" + theKey + "' class='notes'>" + theNotes + "</div><div id='mpg" + theKey + "'>" + theMPG + "</div><div id='mpq" + theKey + "'>" + theMPQ + "</div></div><br>";
+                        theString = theString + "<div data-id='" + theKey + "' class='line-item'><span id='date" + theKey + "' class='date'>" + theDate + "</span><span id='btn-edit' data-id='" + theKey + "'>Edit</span><br>Odometer: <div id='odometer" + theKey + "' class='line-item-element'>" + theOdometer + "</div><br>Gallons of Gas: <div id='gallons" + theKey + "' class='line-item-element'>" + theGallons + "</div><br>Quarts of Oil: <div id='quarts" + theKey + "' class='line-item-element'>" + theQuarts + "</div><div id='notes" + theKey + "' class='notes'>" + theNotes + "</div><div id='mpg" + theKey + "'class='line-item-element'>" + theMPG + "</div>, <div id='mpq" + theKey + "'class='line-item-element'>" + theMPQ + "</div></div><br>";
                     });
                     $("#display-entries").html(theString);
                     displayApplicationOrVehicleSettings("application");
@@ -414,22 +415,27 @@ $(document).ready(function () {
 
                 database.ref(userIntervalsPath).on("value", function (snapshot) {
                     if (snapshot.exists()) {
+                        intervalOneDue = parseInt(snapshot.val().intervalOneLastDone) + parseInt(snapshot.val().intervalOneInterval);
+                        intervalTwoDue = parseInt(snapshot.val().intervalTwoLastDone) + parseInt(snapshot.val().intervalTwoInterval);
+                        intervalThreeDue = parseInt(snapshot.val().intervalThreeLastDone) + parseInt(snapshot.val().intervalThreeInterval);
+                        intervalFourDue = parseInt(snapshot.val().intervalFourLastDone) + parseInt(snapshot.val().intervalFourInterval);
+                        intervalFiveDue = parseInt(snapshot.val().intervalFiveLastDone) + parseInt(snapshot.val().intervalFiveInterval);
                         $("#vehicle-settings-name").val(snapshot.val().vehicleName);
                         $("#interval-1-name").val(snapshot.val().intervalOneName);
                         $("#interval-1-last-done").val(snapshot.val().intervalOneLastDone);
                         $("#interval-1-interval").val(snapshot.val().intervalOneInterval);
-                        $("#interval-2-name").val(snapshot.val().intervaltwoName);
-                        $("#interval-2-last-done").val(snapshot.val().intervaltwoLastDone);
-                        $("#interval-2-interval").val(snapshot.val().intervaltwoInterval);
-                        $("#interval-3-name").val(snapshot.val().intervalthreeName);
-                        $("#interval-3-last-done").val(snapshot.val().intervalthreeLastDone);
-                        $("#interval-3-interval").val(snapshot.val().intervalthreeInterval);
-                        $("#interval-4-name").val(snapshot.val().intervalfourName);
-                        $("#interval-4-last-done").val(snapshot.val().intervalfourLastDone);
-                        $("#interval-4-interval").val(snapshot.val().intervalfourInterval);
-                        $("#interval-5-name").val(snapshot.val().intervalfiveName);
-                        $("#interval-5-last-done").val(snapshot.val().intervalfiveLastDone);
-                        $("#interval-5-interval").val(snapshot.val().intervalfiveInterval);
+                        $("#interval-2-name").val(snapshot.val().intervalTwoName);
+                        $("#interval-2-last-done").val(snapshot.val().intervalTwoLastDone);
+                        $("#interval-2-interval").val(snapshot.val().intervalTwoInterval);
+                        $("#interval-3-name").val(snapshot.val().intervalThreeName);
+                        $("#interval-3-last-done").val(snapshot.val().intervalThreeLastDone);
+                        $("#interval-3-interval").val(snapshot.val().intervalThreeInterval);
+                        $("#interval-4-name").val(snapshot.val().intervalFourName);
+                        $("#interval-4-last-done").val(snapshot.val().intervalFourLastDone);
+                        $("#interval-4-interval").val(snapshot.val().intervalFourInterval);
+                        $("#interval-5-name").val(snapshot.val().intervalFiveName);
+                        $("#interval-5-last-done").val(snapshot.val().intervalFiveLastDone);
+                        $("#interval-5-interval").val(snapshot.val().intervalFiveInterval);
                     };
                     if (theMPG === "NaN mpg gas") {
                         theMPG = "no mpg data yet"
@@ -438,7 +444,24 @@ $(document).ready(function () {
                         theMPQ = "no mpg data yet"
                     }
                     theVehicleName = $("#vehicle-settings-name").val();
-                    $("#vehicle-data").html("<strong>" + theVehicleName + ":</strong> " + theMPG + ", " + theMPQ);
+                    let theIntervalNotices = "";
+                    if (intervalOneDue < parseInt(theLastOdometerEntry)) {
+                        theIntervalNotices += snapshot.val().intervalOneName + " is due. "
+                    }
+                    if (intervalTwoDue < parseInt(theLastOdometerEntry)) {
+                        theIntervalNotices += snapshot.val().intervalTwoName + " is due. "
+                    }
+                    if (intervalThreeDue < parseInt(theLastOdometerEntry)) {
+                        theIntervalNotices += snapshot.val().intervalThreeName + " is due. "
+                    }
+                    if (intervalFourDue < parseInt(theLastOdometerEntry)) {
+                        theIntervalNotices += snapshot.val().intervalFourName + " is due. "
+                    }
+                    if (intervalFiveDue < parseInt(theLastOdometerEntry)) {
+                        theIntervalNotices += snapshot.val().intervalFiveName + " is due. "
+                    }
+                    $("#vehicle-data").html("<strong>" + theVehicleName + ":</strong> " + theMPG + ", " + theMPQ + ". <span id='interval-notices'>" + theIntervalNotices + "</span>");
+
 
                 }, function (errorObject) {
                     console.log("intervals-error: " + errorObject.code);
@@ -467,5 +490,5 @@ $(document).ready(function () {
         });
     }
     initializeDatabaseReferences();
-    console.log("v3");
+    console.log("v3.15");
 });
