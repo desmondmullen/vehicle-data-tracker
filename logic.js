@@ -422,5 +422,5 @@ $(document).ready(function () {
         });
     }
     initializeDatabaseReferences();
-    console.log("v2.5275");
+    console.log("v2.7");
 });
