@@ -12,31 +12,50 @@ button {
 }
 
 p {
-    width: 40%;
-    margin-left: 30%;
+    width: 70%;
+    margin-left: 15%;
 }
 
-#sign-out {
+.settings-instructions {
+    text-align: center;
+}
+
+#settings-and-signout-buttons {
     float: right;
-    margin: 10px;
 }
 
 #authentication {
     text-align: center;
     width: 100%;
+    /* margin-bottom: 10px; */
+}
+
+#authentication p {
+    font-style: italic;
+}
+
+.login-background h3 {
+    padding-top: 10px;
+}
+
+.login-background {
     background-color: palevioletred;
 }
 
 .login-input {
     text-align: left;
+    margin: 0 5px 0 5px;
 }
 
 #application {
     display: none;
 }
 
-#vehicle-settings {
-    text-align: center;
+#table-wrapper {
+    position: relative;
+    max-width: 30ch;
+    left: 50%;
+    margin-left: -12.5%;
 }
 
 #table-update-buttons {
@@ -44,7 +63,7 @@ p {
     text-align: center;
 }
 
-form {
+.input-form {
     background-color: lightskyblue;
     padding: 10px 0;
 }
@@ -53,7 +72,6 @@ label {
     width: 13ch;
     text-align: right;
     font-weight: bold;
-    vertical-align: top;
     padding: 0 5px;
 }
 
@@ -70,8 +88,38 @@ input {
     text-align: right;
 }
 
+.interval-name {
+    text-align: left;
+    width: 12ch;
+}
+
+.interval-odometer {
+    width: 10ch;
+}
+
+.interval-interval {
+    width: 8ch;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
 .input-entry {
     width: 10ch;
+    margin: 5px;
+}
+
+#input-date {
+    padding-right: 15px;
 }
 
 #input-notes {
@@ -90,7 +138,11 @@ input {
     width: 100%;
     display: none;
     text-align: center;
-    margin: 5px;
+    /* margin: 5px; */
+}
+
+#editing-display button {
+    margin: 10px 0 0 0;
 }
 
 #add-entry-display {
@@ -104,11 +156,15 @@ input {
     margin: 0 auto;
 }
 
-#vehicle-settings-header {
-    text-align: center;
+#vehicle-settings {
+    width: 100%;
 }
 
 #vehicle-settings-name {
+    position: relative;
+    left: 50%;
+    margin-left: -7.5ch;
+    width: 15ch;
     text-align: center;
     font-size: x-large;
     margin-bottom: 10px;
@@ -117,7 +173,7 @@ input {
 
 #vehicle-data {
     display: inline;
-    width: 100%;
+    /* width: 100%; */
 }
 
 #vehicle-data-wrapper {
@@ -139,8 +195,6 @@ hr {
 }
 
 .line-item {
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
     border: 1px solid black;
     background-color: aliceblue;
     padding: 5px;
@@ -200,44 +254,6 @@ hr {
     margin: 10px 5px 10px 20px;
 }
 
-/* .interval-table {
-    margin: 0px auto;
-}
-
-.interval-table td {
-    border-style: solid;
-    border-width: 1px;
-    overflow: hidden;
-}
-
-.interval-table input {
-    margin-right: 0;
-    text-align: center;
-}
-
-.td-text {
-    width: 10ch;
-}
-
-.td-number input {
-    margin-right: 0;
-    width: 8ch;
-    text-align: right;
-}
-
-.interval-table th {
-    font-weight: bold;
-    border-style: solid;
-    border-width: 1px;
-    overflow: hidden;
-    text-align: center;
-}
-
-.interval-table .interval-table-td {
-    vertical-align: top;
-}
- */
-
 @-ms-viewport {
     width: device-width;
 }
@@ -251,8 +267,18 @@ hr {
         width: 100%;
         margin-left: 0;
     }
-    #sign-out {
+    #settings-and-signout-buttons {
         float: none;
+        text-align: center;
+        /* height: 30px; */
+        margin: 0;
+        padding: 0;
+    }
+    #btn-vehicle-settings, #sign-out {
+        margin: 0 10px 0 10px;
+        padding: 0;
+    }
+    #add-entry {
         margin: 0;
     }
     #copyright {
@@ -268,6 +294,7 @@ hr {
     #vehicle-data {
         display: inline-block;
         width: 100%;
+        font-size: small;
     }
     #bottom-bar {
         height: 4.5ch;
@@ -284,19 +311,7 @@ hr {
     /*really small margins for better layout on mobile in portrait*/
 }
 
-@media screen and (max-width: 767px) {
-    /* .interval-table {
-        width: auto !important;
-    }
-    .interval-table col {
-        width: auto !important;
-    }
-    .interval-table-wrap {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        margin: auto 0px;
-    } */
-}
+@media screen and (max-width: 767px) {}
 
 @media only screen and (max-width: 600px) {
     /*really small margins for better layout on mobile in portrait*/

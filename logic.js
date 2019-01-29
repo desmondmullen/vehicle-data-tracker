@@ -29,11 +29,13 @@ $(document).ready(function () {
             $("#application").css("visibility", "visible");
             $("#authentication").css("display", "none");
             $("#sign-out").css("display", "inline");
+            $("#vehicle-settings").css("display", "none");
         } else {
             //displayAuthentication
             $("#application").css("visibility", "hidden");
             $("#authentication").css("display", "inline-block");
             $("#sign-out").css("display", "none");
+            $("#vehicle-settings").css("display", "none");
         }
     };
     displayApplicationOrAuthentication()
@@ -179,7 +181,7 @@ $(document).ready(function () {
         emptyInputFields();
     });
 
-    $("#vehicle-data-wrapper").click(function () {
+    $("#btn-vehicle-settings").click(function () {
         displayApplicationOrVehicleSettings("settings");
     });
 
@@ -459,7 +461,11 @@ $(document).ready(function () {
                     if (intervalFiveDue < parseInt(theLastOdometerEntry)) {
                         theIntervalNotices += snapshot.val().intervalFiveName + " is due. "
                     }
-                    $("#vehicle-data").html("<strong>" + theVehicleName + ":</strong> " + theMPG + ", " + theMPQ + ". <span id='interval-notices'>" + theIntervalNotices + "</span>");
+                    if (theIntervalNotices == "") {
+                        $("#vehicle-data").html("<strong>" + theVehicleName + ":</strong> " + theMPG + ", " + theMPQ + ".");
+                    } else {
+                        $("#vehicle-data").html("<strong>" + theVehicleName + ":</strong> " + theMPG + ", " + theMPQ + ".<br><span id='interval-notices'>" + theIntervalNotices + "</span>");
+                    }
 
 
                 }, function (errorObject) {
@@ -489,5 +495,5 @@ $(document).ready(function () {
         });
     }
     initializeDatabaseReferences();
-    console.log("v3.157");
+    console.log("v3.17");
 });
