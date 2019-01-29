@@ -194,7 +194,6 @@ $(document).ready(function () {
 
     $(".which-vehicle-radio-button").click(function () {
         let theVehicleToGoTo = $("input[name='which-vehicle']:checked").val();
-        alert(theVehicleToGoTo);
         switchToVehicle(theVehicleToGoTo);
         location = location //reloads page to get newly selected vehicle's data
     });
