@@ -144,6 +144,7 @@ $(document).ready(function () {
             intervalFiveName: $("#interval-5-name").val(),
             intervalFiveLastDone: $("#interval-5-last-done").val(),
             intervalFiveInterval: $("#interval-5-interval").val(),
+            intervalNotes: $("#interval-notes").val(),
         });
     };
 
@@ -280,6 +281,7 @@ $(document).ready(function () {
         $("#interval-5-name").val("");
         $("#interval-5-last-done").val("");
         $("#interval-5-interval").val("");
+        $("#interval-notes").val("");
         thePreviousGasFillupOdometer = 0;
         theLastGasFillupOdometer = 0;
         theLastGasFillupGallons = 0;
@@ -437,6 +439,7 @@ $(document).ready(function () {
                         $("#interval-5-name").val(snapshot.val().intervalFiveName);
                         $("#interval-5-last-done").val(snapshot.val().intervalFiveLastDone);
                         $("#interval-5-interval").val(snapshot.val().intervalFiveInterval);
+                        $("#interval-notes").val(snapshot.val().intervalNotes);
                     };
                     if (theMPG === "NaN mpg gas") {
                         theMPG = "no mpg data yet"
@@ -495,5 +498,5 @@ $(document).ready(function () {
         });
     }
     initializeDatabaseReferences();
-    console.log("v3.17");
+    console.log("v3.175");
 });

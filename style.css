@@ -172,6 +172,11 @@ input {
     font-weight: bold;
 }
 
+#interval-notes {
+    width: 94%;
+    margin-left: 3%;
+}
+
 #vehicle-data {
     display: inline;
     /* width: 100%; */
