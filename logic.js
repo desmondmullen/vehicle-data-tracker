@@ -108,17 +108,37 @@ $(document).ready(function () {
                 entryNotes: entryNotes,
             });
         };
-        database.ref(userStatisticsPath).set({
-            vehicleName: $("#vehicle-name").val(),
-            previousGasFillupOdometer: thePreviousGasFillupOdometer,
-            lastGasFillupOdometer: theLastGasFillupOdometer,
-            lastGasFillupGallons: theLastGasFillupGallons,
-            previousOilFillupOdometer: thePreviousOilFillupOdometer,
-            lastOilFillupOdometer: theLastOilFillupOdometer,
-            lastOilFillupQuarts: theLastOilFillupQuarts,
-        });
+        writeStatistics()
         emptyInputFields();
     });
+
+    function writeStatistics() {
+        database.ref(userStatisticsPath).set({
+            vehicleName: $("#vehicle-settings-name").val(),
+            previousGasFillupOdometer: thePreviousGasFillupOdometer || 0,
+            lastGasFillupOdometer: theLastGasFillupOdometer || 0,
+            lastGasFillupGallons: theLastGasFillupGallons || 0,
+            previousOilFillupOdometer: thePreviousOilFillupOdometer || 0,
+            lastOilFillupOdometer: theLastOilFillupOdometer || 0,
+            lastOilFillupQuarts: theLastOilFillupQuarts || 0,
+            intervalOneName: $("#interval-1-name").val(),
+            intervalOneLastDone: $("#interval-1-last-done").val(),
+            intervalOneInterval: $("#interval-1-interval").val(),
+            intervaltwoName: $("#interval-2-name").val(),
+            intervaltwoLastDone: $("#interval-2-last-done").val(),
+            intervaltwoInterval: $("#interval-2-interval").val(),
+            intervalthreeName: $("#interval-3-name").val(),
+            intervalthreeLastDone: $("#interval-3-last-done").val(),
+            intervalthreeInterval: $("#interval-3-interval").val(),
+            intervalfourName: $("#interval-4-name").val(),
+            intervalfourLastDone: $("#interval-4-last-done").val(),
+            intervalfourInterval: $("#interval-4-interval").val(),
+            intervalfiveName: $("#interval-5-name").val(),
+            intervalfiveLastDone: $("#interval-5-last-done").val(),
+            intervalfiveInterval: $("#interval-5-interval").val(),
+        });
+    };
+
 
     function emptyInputFields() {
         $("#input-date").val(todaysDate);
@@ -153,6 +173,19 @@ $(document).ready(function () {
         emptyInputFields();
     });
 
+    $("#vehicle-data-wrapper").click(function () {
+        displayApplicationOrVehicleSettings("settings");
+    });
+
+    $("#cancel-table-update").click(function () {
+        displayApplicationOrVehicleSettings("application");
+    });
+
+    $("#update-table").click(function () {
+        writeStatistics();
+        displayApplicationOrVehicleSettings("application");
+    });
+
     $(".which-vehicle-radio-button").click(function () {
         let theVehicleToGoTo = $("input[name='which-vehicle']:checked").val();
         switchToVehicle(theVehicleToGoTo);
@@ -164,6 +197,22 @@ $(document).ready(function () {
         let theString = "#btn-" + theVehicleToGoTo;
         $(theString).prop("checked", true);
     }
+
+    function displayApplicationOrVehicleSettings(applicationOrSettings) {
+        if (applicationOrSettings === "application") {
+            //displayApplication
+            $("#application").css("display", "block");
+            $("#sign-out").css("display", "inline");
+            $("#vehicle-settings").css("display", "none");
+        } else {
+            console.log("there");
+            //displayVehicleSettings
+            $("#application").css("display", "none");
+            $("#sign-out").css("display", "none");
+            $("#vehicle-settings").css("display", "inline");
+        }
+    };
+
 
     $("#sign-out").click(function () {
         doSignOut();
@@ -209,9 +258,8 @@ $(document).ready(function () {
             signedIn: false
         });
         database.ref(userStatisticsPath).set({//this would not otherwise get written if no entries were added or edited
-            vehicleName: $("#vehicle-name").val(),
+            vehicleName: $("#vehicle-settings-name").val(),
         });
-        $("#vehicle-name").val("");
         $("#vehicle-data").text("");
         thePreviousGasFillupOdometer = 0;
         theLastGasFillupOdometer = 0;
@@ -325,6 +373,7 @@ $(document).ready(function () {
                         theString = theString + "<div data-id='" + theKey + "' class='line-item'><span id='date" + theKey + "' class='date'>" + theDate + "</span><span id='btn-edit' data-id='" + theKey + "'>Edit</span><div id='odometer" + theKey + "'>" + theOdometer + "</div><div id='gallons" + theKey + "'>" + theGallons + "</div><div id='quarts" + theKey + "'>" + theQuarts + "</div><div id='notes" + theKey + "' class='notes'>" + theNotes + "</div><div id='mpg" + theKey + "'>" + theMPG + "</div><div id='mpq" + theKey + "'>" + theMPQ + "</div></div><br>";
                     });
                     $("#display-entries").html(theString);
+                    displayApplicationOrVehicleSettings("application");
                 }, function (errorObject) {
                     console.log("entries-error: " + errorObject.code);
                 });
@@ -338,7 +387,7 @@ $(document).ready(function () {
                         thePreviousOilFillupOdometer = snapshot.val().previousOilFillupOdometer;
                         theLastOilFillupOdometer = snapshot.val().lastOilFillupOdometer;
                         theLastOilFillupQuarts = snapshot.val().lastOilFillupQuarts;
-                        $("#vehicle-name").val(theVehicleName);
+                        $("#vehicle-settings-name").val(theVehicleName);
                         let theMPGInfo = ((theLastGasFillupOdometer - thePreviousGasFillupOdometer) / theLastGasFillupGallons).toFixed(2) + " mpg gas. "
                         if (theMPGInfo === "NaN mpg gas. ") {
                             theMPGInfo = "no mpg data yet. "
@@ -347,7 +396,7 @@ $(document).ready(function () {
                         if (theMPQInfo === "NaN mpq oil.") {
                             theMPQInfo = "no mpg data yet. "
                         }
-                        $("#vehicle-data").html(theMPGInfo + theMPQInfo);
+                        $("#vehicle-data").html($("#vehicle-settings-name").val() + ": " + theMPGInfo + theMPQInfo);
                     };
                 }, function (errorObject) {
                     console.log("statistics-error: " + errorObject.code);

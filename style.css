@@ -28,7 +28,16 @@ p {
 }
 
 #application {
-    visibility: hidden;
+    display: none;
+}
+
+#vehicle-settings {
+    text-align: center;
+}
+
+#table-update-buttons {
+    width: 100%;
+    text-align: center;
 }
 
 form {
@@ -169,6 +178,40 @@ hr {
     margin: 10px 5px 10px 20px;
 }
 
+.interval-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0px auto;
+}
+
+.interval-table td {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 10px 5px;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    word-break: normal;
+    border-color: black;
+}
+
+.interval-table th {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px 5px;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    word-break: normal;
+    border-color: black;
+}
+
+.interval-table .interval-table-td {
+    text-align: left;
+    vertical-align: top
+}
+
 @-ms-viewport {
     width: device-width;
 }
@@ -216,6 +259,20 @@ hr {
 
 @media only screen and (max-width: 800px) {
     /*really small margins for better layout on mobile in portrait*/
+}
+
+@media screen and (max-width: 767px) {
+    .interval-table {
+        width: auto !important;
+    }
+    .interval-table col {
+        width: auto !important;
+    }
+    .interval-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: auto 0px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
