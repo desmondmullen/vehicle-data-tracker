@@ -64,7 +64,9 @@ label {
 input {
     display: inline;
     text-align: right;
-    /* margin-right: 10px; */
+}
+
+.input-entry {
     width: 10ch;
 }
 
@@ -260,7 +262,7 @@ hr {
         width: 100%;
     }
     #bottom-bar {
-        height: 4ch;
+        height: 5ch;
         font-size: small;
         text-align: center;
         padding-left: 0px;
