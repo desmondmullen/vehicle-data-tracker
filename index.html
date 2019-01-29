@@ -26,10 +26,10 @@
             <strong>create a new account</strong>.<br>Enter your email address and leave password blank if you want to
             <strong>reset
                 your password</strong>.</p>
-        <input type="text" id="email" name="email" placeholder="Email" /><input type="password" id="password" name="password"
-            placeholder="Password" /><br><button disabled id="sign-in" class="sign-in" name="signin">Sign
-            In</button><button id="create-account" name="createaccount">Create Account</button><button id="password-reset"
-            name="passwordreset">Reset Password</button>
+        <form><input type="text" id="email" name="email" placeholder="Email" /><input type="password" id="password"
+                name="password" placeholder="Password" /><br><button disabled id="sign-in" class="sign-in" name="signin">Sign
+                In</button><button id="create-account" name="createaccount">Create Account</button><button id="password-reset"
+                name="passwordreset">Reset Password</button></form>
     </div>
 
     <div id="application">
@@ -52,7 +52,6 @@
                 Update</button>
         </div>
         <div id="vehicle-data-wrapper">
-            <input id="vehicle-name" size=18 placeholder="Enter vehicle nickname..."></input>
             <div id="vehicle-data"></div>
         </div>
         <div id="display-entries"></div>
@@ -70,7 +69,7 @@
 
     <div id="vehicle-settings">
         <div id="vehicle-settings-header">
-            <input id="vehicle-settings-name" size=18 placeholder="Enter vehicle nickname..."></input>
+            <input id="vehicle-settings-name" size=22 placeholder="Enter vehicle nickname..."></input>
             <div id="vehicle-settings-data"></div>
         </div>
         <div class="interval-table-wrap">
@@ -78,32 +77,32 @@
                 <tr>
                     <th class="interval-table-td">Interval Name</th>
                     <th class="interval-table-td">Last Done</th>
-                    <th class="interval-table-td">Miles Until Next</th>
+                    <th class="interval-table-td">Interval</th>
                 </tr>
                 <tr>
-                    <td class="interval-table-td"><input id="interval-1-name" type="text" size=20></td>
-                    <td class="interval-table-td"><input id="interval-1-last-done" type="text" size=10></td>
-                    <td class="interval-table-td"><input id="interval-1-interval" type="text" size=10></td>
+                    <td class="interval-table-td"><input id="interval-1-name" type="text" size=15 placeholder="Ex: oil change..."></td>
+                    <td class="interval-table-td"><input id="interval-1-last-done" type="text" size=8 placeholder="125000"></td>
+                    <td class="interval-table-td"><input id="interval-1-interval" type="text" size=8 placeholder="3000"></td>
                 </tr>
                 <tr>
-                    <td class="interval-table-td"><input id="interval-2-name" type="text" size=20></td>
-                    <td class="interval-table-td"><input id="interval-2-last-done" type="text" size=10></td>
-                    <td class="interval-table-td"><input id="interval-2-interval" type="text" size=10></td>
+                    <td class="interval-table-td"><input id="interval-2-name" type="text" size=15></td>
+                    <td class="interval-table-td"><input id="interval-2-last-done" type="text" size=8></td>
+                    <td class="interval-table-td"><input id="interval-2-interval" type="text" size=8></td>
                 </tr>
                 <tr>
-                    <td class="interval-table-td"><input id="interval-3-name" type="text" size=20></td>
-                    <td class="interval-table-td"><input id="interval-3-last-done" type="text" size=10></td>
-                    <td class="interval-table-td"><input id="interval-3-interval" type="text" size=10></td>
+                    <td class="interval-table-td"><input id="interval-3-name" type="text" size=15></td>
+                    <td class="interval-table-td"><input id="interval-3-last-done" type="text" size=8></td>
+                    <td class="interval-table-td"><input id="interval-3-interval" type="text" size=8></td>
                 </tr>
                 <tr>
-                    <td class="interval-table-td"><input id="interval-4-name" type="text" size=20></td>
-                    <td class="interval-table-td"><input id="interval-4-last-done" type="text" size=10></td>
-                    <td class="interval-table-td"><input id="interval-4-interval" type="text" size=10></td>
+                    <td class="interval-table-td"><input id="interval-4-name" type="text" size=15></td>
+                    <td class="interval-table-td"><input id="interval-4-last-done" type="text" size=8></td>
+                    <td class="interval-table-td"><input id="interval-4-interval" type="text" size=8></td>
                 </tr>
                 <tr>
-                    <td class="interval-table-td"><input id="interval-5-name" type="text" size=20></td>
-                    <td class="interval-table-td"><input id="interval-5-last-done" type="text" size=10></td>
-                    <td class="interval-table-td"><input id="interval-5-interval" type="text" size=10></td>
+                    <td class="interval-table-td"><input id="interval-5-name" type="text" size=15></td>
+                    <td class="interval-table-td"><input id="interval-5-last-done" type="text" size=8></td>
+                    <td class="interval-table-td"><input id="interval-5-interval" type="text" size=8></td>
                 </tr>
             </table>
         </div>

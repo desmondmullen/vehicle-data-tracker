@@ -96,10 +96,15 @@ input {
     margin: 0 auto;
 }
 
-#vehicle-name {
+#vehicle-settings-header {
     text-align: center;
+}
+
+#vehicle-settings-name {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 0;
     font-weight: bold;
-    margin: 10px;
 }
 
 #vehicle-data {
@@ -179,36 +184,29 @@ hr {
 }
 
 .interval-table {
-    border-collapse: collapse;
-    border-spacing: 0;
     margin: 0px auto;
 }
 
 .interval-table td {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    padding: 10px 5px;
     border-style: solid;
     border-width: 1px;
     overflow: hidden;
-    word-break: normal;
-    border-color: black;
+}
+
+.interval-table input {
+    margin-right: 0;
+    text-align: center;
 }
 
 .interval-table th {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: normal;
-    padding: 10px 5px;
+    font-weight: bold;
     border-style: solid;
     border-width: 1px;
     overflow: hidden;
-    word-break: normal;
-    border-color: black;
+    text-align: center;
 }
 
 .interval-table .interval-table-td {
-    text-align: left;
     vertical-align: top
 }
 
@@ -238,9 +236,6 @@ hr {
     }
     label {
         margin: 5px 0px 0px 0px;
-    }
-    #vehicle-name {
-        margin: 10px 0 0 0;
     }
     #vehicle-data {
         display: inline-block;
