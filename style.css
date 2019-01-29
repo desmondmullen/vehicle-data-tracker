@@ -102,6 +102,7 @@ input {
 
 #vehicle-settings-name {
     text-align: center;
+    font-size: x-large;
     margin-bottom: 10px;
     margin-right: 0;
     font-weight: bold;
@@ -198,6 +199,12 @@ hr {
     text-align: center;
 }
 
+.td-number input {
+    margin-right: 0;
+    width: 8ch;
+    text-align: right;
+}
+
 .interval-table th {
     font-weight: bold;
     border-style: solid;
@@ -207,7 +214,7 @@ hr {
 }
 
 .interval-table .interval-table-td {
-    vertical-align: top
+    vertical-align: top;
 }
 
 @-ms-viewport {
