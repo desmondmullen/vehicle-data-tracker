@@ -440,7 +440,7 @@ $(document).ready(function () {
                         theMPG = "no mpg data yet"
                     }
                     if (theMPQ === "NaN mpq oil") {
-                        theMPQ = "no mpg data yet"
+                        theMPQ = "no mpq data yet"
                     }
                     theVehicleName = $("#vehicle-settings-name").val();
                     let theIntervalNotices = "";
@@ -489,5 +489,5 @@ $(document).ready(function () {
         });
     }
     initializeDatabaseReferences();
-    console.log("v3.151");
+    console.log("v3.152");
 });
