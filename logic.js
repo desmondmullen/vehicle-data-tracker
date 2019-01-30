@@ -1,6 +1,8 @@
 //TODO: if there are gallons or quarts, there must be an odometer reading
 //TODO: format cards
 //TODO: reject bad data from user
+//TODO: display latest mileage in intervals
+//TODO: automate updating interval "last done" mileage
 
 $(document).ready(function () {
     var config = {
