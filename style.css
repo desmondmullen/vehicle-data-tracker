@@ -320,6 +320,13 @@ hr {
         margin-left: -50%;
         font-size: x-small;
     }
+    #copyright-login {
+        right: 0;
+        padding: 0;
+        left: 50%;
+        margin-left: -50%;
+        font-size: x-small;
+    }
     label {
         margin: 5px 0px 0px 0px;
     }
@@ -344,6 +351,12 @@ hr {
     }
     #bottom-bar {
         height: 4.5ch;
+        font-size: small;
+        text-align: center;
+        padding-left: 0px;
+    }
+    #bottom-bar-login {
+        height: 2ch;
         font-size: small;
         text-align: center;
         padding-left: 0px;
