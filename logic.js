@@ -307,6 +307,7 @@ $(document).ready(function () {
             return;
         }
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+
             var errorCode = error.code;
             var errorMessage = error.message;
             if (errorCode == "auth/weak-password") {
@@ -491,11 +492,9 @@ $(document).ready(function () {
             toggleSignIn();
         });
         $(document.body).on("click", "#create-account", function () {
-            preventDefault();
             handleSignUp();
         });
         $(document.body).on("click", "#password-reset", function () {
-            preventDefault();
             sendPasswordReset();
         });
     }
