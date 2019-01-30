@@ -500,5 +500,5 @@ $(document).ready(function () {
         });
     }
     initializeDatabaseReferences();
-    console.log("v3.175");
+    console.log("Vehicle Data Tracker v3.175");
 });
